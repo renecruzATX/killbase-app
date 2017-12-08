@@ -9,7 +9,7 @@ module.exports = {
       database: 'killbaseApp',
       user:     'stevenfiero',
       password: ''
-    }
+    },
     migrations: {
       tableName: 'knex_migrations',
       directory: './migrations'
