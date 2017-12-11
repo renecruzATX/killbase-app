@@ -1,4 +1,41 @@
 
+let fs = require('fs');
+
+
+// import assassins csv file.
+let assassinsCsv = fs.readFileSync('./data/assassins.csv', 'utf8');
+console.log('Original csv file: ', assassinsCsv);
+// replace quotes and split file into an array of lines.
+let assassinsLines = assassinsCsv.trim().replace(/"/g, '').split('\n');
+console.log('Replaced quotes and split new lines: ', assassinsLines);
+// split headers line by commas.
+let assassinsHeaders = assassinsLines[0].split(', ');
+console.log('Split header line: ', assassinsHeaders);
+
+let assassins = [];
+
+// iterate over each assassin (which is a new line).
+for (let i = 1; i < assassinsLines.length; i++) {
+
+  let assassinsObject = {};
+  // split each new line to get the values.
+  let newLine = assassinsLines[i].split(', ');
+
+  // loop over headers line to get the keys.
+  for (let j=0; j < assassinsHeaders.length; j++) {
+    // loop through headers and assign headers and values to new object.
+    assassinsObject[assassinsHeaders[j]] = newLine[j];
+  }
+
+  // push new objects into array.
+  assassins.push(assassinsObject);
+}
+console.log('Assassin objects: ', assassins);
+
+
+
+
+
 exports.seed = function(knex, Promise) {
   // Assassins table
   // Deletes ALL existing entries
