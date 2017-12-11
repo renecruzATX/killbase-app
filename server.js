@@ -37,6 +37,24 @@ app.get('/assassins', function(req, res) {
 
 
 
+// GET route to retreive a specific assassin
+app.get('/assassins/:id', function(req, res) {
+  knex('assassins')
+    .select('id', 'fullName', 'codeName', 'weapon', 'contactInfo', 'rating', 'kills', 'price', 'age')
+    .where('id', req.params.id)
+    .then(function(result) {
+      res.send(result);
+      knex.destroy();
+    })
+    .catch(function(err) {
+      console.log(err);
+      knex.destroy();
+      process.exit(1);
+    });
+});
+
+
+
 
 
 
