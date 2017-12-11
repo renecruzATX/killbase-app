@@ -4,7 +4,8 @@
   "description": "**Killbase** is a service that allows international assassins and their clients to create, book, and execute contracts. You are building a web app for them. It should allow you to:",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon"
   },
   "repository": {
     "type": "git",
