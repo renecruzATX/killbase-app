@@ -26,12 +26,10 @@ app.get('/assassins', function(req, res) {
     .select('id', 'fullName', 'codeName', 'weapon', 'contactInfo', 'rating', 'kills', 'price', 'age')
     .then(function(result) {
       res.send(result);
-      knex.destroy();
     })
     .catch(function(err) {
       console.log(err);
-      knex.destroy();
-      process.exit(1);
+      res.sendStatus(500);
     });
 });
 
@@ -44,12 +42,34 @@ app.get('/assassins/:id', function(req, res) {
     .where('id', req.params.id)
     .then(function(result) {
       res.send(result);
-      knex.destroy();
     })
     .catch(function(err) {
       console.log(err);
-      knex.destroy();
-      process.exit(1);
+      res.sendStatus(500);
+    });
+});
+
+
+
+// POST route to add a new assassin
+app.post('/assassins', function(req, res) {
+  knex('assassins')
+    .insert({
+      fullName: req.body.fullName,
+      codeName: req.body.codeName,
+      weapon: req.body.weapon,
+      contactInfo: req.body.contactInfo,
+      rating: req.body.rating,
+      kills: req.body.kills,
+      price: req.body.price,
+      age: req.body.age
+    })
+    .then(function(result) {
+      res.send(result);
+    })
+    .catch(function(err) {
+      console.log(err);
+      res.sendStatus(500);
     });
 });
 

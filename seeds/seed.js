@@ -16,17 +16,14 @@ let assassins = [];
 
 // iterate over each assassin (which is a new line).
 for (let i = 1; i < assassinsLines.length; i++) {
-
   let assassinsObject = {};
   // split each new line to get the values.
   let newLine = assassinsLines[i].split(', ');
-
   // loop over headers line to get the keys.
   for (let j=0; j < assassinsHeaders.length; j++) {
     // loop through headers and assign headers and values to new object.
     assassinsObject[assassinsHeaders[j]] = newLine[j];
   }
-
   // push new objects into array.
   assassins.push(assassinsObject);
 }
@@ -43,7 +40,6 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries for assassins
       return knex('assassins').insert([{
-        id: 1,
         fullName: 'Alexander Duggan',
         codeName: 'The Jackal',
         weapon: 'Sniper Rifle',
@@ -53,7 +49,6 @@ exports.seed = function(knex, Promise) {
         price: 45,
         age: 31
       }, {
-        id: 2,
         fullName: 'Anton Chigurh',
         codeName: 'Old Man',
         weapon: 'Pneumatic bolt gun',
@@ -63,7 +58,6 @@ exports.seed = function(knex, Promise) {
         price: 40,
         age: 52
       }, {
-        id: 3,
         fullName: '',
         codeName: 'Ghost Dog',
         weapon: 'Pistol',
@@ -73,7 +67,6 @@ exports.seed = function(knex, Promise) {
         price: 20,
         age: 28
       }, {
-        id: 4,
         fullName: 'Jason Bourne',
         codeName: '',
         weapon: 'Parkour',
@@ -83,7 +76,6 @@ exports.seed = function(knex, Promise) {
         price: 25,
         age: 27
       }, {
-        id: 5,
         fullName: 'John Wick',
         codeName: 'Baba Yaga',
         weapon: 'Lots of guns',
@@ -93,7 +85,6 @@ exports.seed = function(knex, Promise) {
         price: 50,
         age: 35
       }, {
-        id: 6,
         fullName: 'Jules Winnfield',
         codeName: '',
         weapon: 'Pistol',
@@ -103,7 +94,6 @@ exports.seed = function(knex, Promise) {
         price: 15,
         age: 26
       }, {
-        id: 7,
         fullName: 'Leon',
         codeName: 'The Professional',
         weapon: 'Everything',
@@ -113,7 +103,6 @@ exports.seed = function(knex, Promise) {
         price: 30,
         age: 41
       }, {
-        id: 8,
         fullName: 'Nikita Mears',
         codeName: 'Nikita',
         weapon: 'Silenced pistols',
@@ -123,7 +112,6 @@ exports.seed = function(knex, Promise) {
         price: 30,
         age: 28
       }, {
-        id: 9,
         fullName: 'Nikita Mears',
         codeName: 'La Femme Nikita',
         weapon: 'Silenced pistols',
@@ -133,7 +121,6 @@ exports.seed = function(knex, Promise) {
         price: 30,
         age: 28
       }, {
-        id: 10,
         fullName: 'Pickle Rick',
         codeName: 'Solenya',
         weapon: 'Lasers and office supplies',
@@ -152,27 +139,22 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries for contracts
       return knex('contracts').insert([{
-        id: 1,
         targetName: 'Butch Coolidge',
         targetLocation: 'Los Angeles',
         budget: 40
       }, {
-        id: 2,
         targetName: 'The Jaguar',
         targetLocation: 'Russian Embassy',
         budget: 70
       }, {
-        id: 3,
         targetName: 'Norman Stansfield',
         targetLocation: 'Manhattan',
         budget: 35
       }, {
-        id: 4,
         targetName: "Santino D'Antonio",
         targetLocation: 'Continental Hotel',
         budget: 25
       }, {
-        id: 5,
         targetName: 'Sonny Valerio',
         targetLocation: 'Queens',
         budget: 10
@@ -186,31 +168,26 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries for targets
       return knex('targets').insert([{
-        id: 1,
         fullNameTarget: 'Butch Coolidge',
         location: 'Los Angeles',
         photo: 'https://goo.gl/LCquZj',
         securityLevel: 3
       }, {
-        id: 2,
         fullNameTarget: 'The Jaguar',
         location: 'Russian Embassy',
         photo: 'https://goo.gl/6JWsiv',
         securityLevel: 9
       }, {
-        id: 3,
         fullNameTarget: 'Norman Stansfield',
         location: 'Manhattan',
         photo: 'https://i.imgur.com/mdIk33E.jpg',
         securityLevel: 7
       }, {
-        id: 4,
         fullNameTarget: "Santino D'Antonio",
         location: 'Continental Hotel',
         photo: 'https://goo.gl/fUPkYy',
         securityLevel: 10
       }, {
-        id: 5,
         fullNameTarget: 'Sonny Valerio',
         location: 'Queens',
         photo: 'https://goo.gl/8DHYUS',
@@ -225,19 +202,14 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries for clients
       return knex('clients').insert([{
-        id: 1,
         clientName: 'Marcellus Wallace'
       }, {
-        id: 2,
         clientName: 'Concerto'
       }, {
-        id: 3,
         clientName: 'Mathilda'
       }, {
-        id: 4,
         clientName: 'Winston'
       }, {
-        id: 5,
         clientName: 'Ray Vargo'
       }]);
     });
