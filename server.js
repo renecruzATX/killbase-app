@@ -1,10 +1,7 @@
-'use strict';
-
-// let fs = require('fs');
-// let path = require('path');
 
 const config = require('./knexfile.js')['development'];
 const knex = require('knex')(config);
+
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 8000;
@@ -19,11 +16,21 @@ app.use(morgan('short'));
 app.use(bodyParser.json());
 
 
+let assassinsroutes = require('./routes/assassinsroutes.js');
+let contractsroutes = require('./routes/contractsroutes.js');
 
-// GET route to retreive all assassins
-app.get('/assassins', function(req, res) {
-  knex('assassins')
-    .select('id', 'fullName', 'codeName', 'weapon', 'contactInfo', 'rating', 'kills', 'price', 'age')
+
+app.use(assassinsroutes);
+app.use(contractsroutes);
+
+
+
+
+// assassincontracts
+app.post('/assassincontracts', function(req, res) {
+  knex('assassincontracts')
+    .select('assassins.id')
+    .join('contracts', 'contracts.id')
     .then(function(result) {
       res.send(result);
     })
@@ -32,177 +39,6 @@ app.get('/assassins', function(req, res) {
       res.sendStatus(500);
     });
 });
-
-
-
-// GET route to retreive a specific assassin
-app.get('/assassins/:id', function(req, res) {
-  knex('assassins')
-    .select('id', 'fullName', 'codeName', 'weapon', 'contactInfo', 'rating', 'kills', 'price', 'age')
-    .where('id', req.params.id)
-    .then(function(result) {
-      res.send(result);
-    })
-    .catch(function(err) {
-      console.log(err);
-      res.sendStatus(500);
-    });
-});
-
-
-
-// POST route to add a new assassin
-app.post('/assassins', function(req, res) {
-  knex('assassins')
-    .insert({
-      fullName: req.body.fullName,
-      codeName: req.body.codeName,
-      weapon: req.body.weapon,
-      contactInfo: req.body.contactInfo,
-      rating: req.body.rating,
-      kills: req.body.kills,
-      price: req.body.price,
-      age: req.body.age
-    }, '*')
-    .then(function(result) {
-      res.send(result);
-    })
-    .catch(function(err) {
-      console.log(err);
-      res.sendStatus(500);
-    });
-});
-
-
-
-// UPDATE route to update an existing assassin
-app.patch('/assassins/:id', function(req, res) {
-  knex('assassins')
-    .update({
-      fullName: req.body.fullName,
-      codeName: req.body.codeName,
-      weapon: req.body.weapon,
-      contactInfo: req.body.contactInfo,
-      rating: req.body.rating,
-      kills: req.body.kills,
-      price: req.body.price,
-      age: req.body.age
-    }, '*')
-    .where('id', req.params.id)
-    .then(function(result) {
-      res.send(result);
-    })
-    .catch(function(err) {
-      console.log(err);
-      res.sendStatus(500);
-    });
-});
-
-
-
-// DELETE route to delete an assassin
-app.delete('/assassins/:id', function(req, res) {
-  knex('assassins')
-    .del()
-    .where('id', req.params.id)
-    .then(function(result) {
-      res.sendStatus(200);
-    })
-    .catch(function(err) {
-      console.log(err);
-      res.sendStatus(500);
-    });
-});
-
-
-
-
-
-
-// GET route to retreive all contracts
-app.get('/contracts', function(req, res) {
-  knex('contracts')
-    .select('id', 'targetName', 'targetLocation', 'budget')
-    .then(function(result) {
-      res.send(result);
-    })
-    .catch(function(err) {
-      console.log(err);
-      res.sendStatus(500);
-    });
-});
-
-
-
-// GET route to retreive a specific contract
-app.get('/contracts/:id', function(req, res) {
-  knex('contracts')
-    .select('id', 'targetName', 'targetLocation', 'budget')
-    .where('id', req.params.id)
-    .then(function(result) {
-      res.send(result);
-    })
-    .catch(function(err) {
-      console.log(err);
-      res.sendStatus(500);
-    });
-});
-
-
-
-// POST route to add a new contract
-app.post('/contracts', function(req, res) {
-  knex('contracts')
-    .insert({
-      targetName: req.body.targetName,
-      targetLocation: req.body.targetLocation,
-      budget: req.body.budget
-    }, '*')
-    .then(function(result) {
-      res.send(result);
-    })
-    .catch(function(err) {
-      console.log(err);
-      res.sendStatus(500);
-    });
-});
-
-
-
-// UPDATE route to update an existing route
-app.patch('/contracts/:id', function(req, res) {
-  knex('contracts')
-    .update({
-      targetName: req.body.targetName,
-      targetLocation: req.body.targetLocation,
-      budget: req.body.budget
-    }, '*')
-    .where('id', req.params.id)
-    .then(function(result) {
-      res.send(result);
-    })
-    .catch(function(err) {
-      console.log(err);
-      res.sendStatus(500);
-    });
-});
-
-
-
-// DELETE route to delete a contract
-app.delete('/contracts/:id', function(req, res) {
-  knex('contracts')
-    .del()
-    .where('id', req.params.id)
-    .then(function(result) {
-      res.sendStatus(200);
-    })
-    .catch(function(err) {
-      console.log(err);
-      res.sendStatus(500);
-    });
-});
-
 
 
 
