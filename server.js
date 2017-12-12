@@ -1,7 +1,7 @@
 'use strict';
 
-let fs = require('fs');
-let path = require('path');
+// let fs = require('fs');
+// let path = require('path');
 
 const config = require('./knexfile.js')['development'];
 const knex = require('knex')(config);
@@ -135,12 +135,67 @@ app.get('/contracts', function(req, res) {
 
 
 // GET route to retreive a specific contract
-app.get('/contracts/;id', function(req, res) {
+app.get('/contracts/:id', function(req, res) {
   knex('contracts')
     .select('id', 'targetName', 'targetLocation', 'budget')
     .where('id', req.params.id)
     .then(function(result) {
       res.send(result);
+    })
+    .catch(function(err) {
+      console.log(err);
+      res.sendStatus(500);
+    });
+});
+
+
+
+// POST route to add a new contract
+app.post('/contracts', function(req, res) {
+  knex('contracts')
+    .insert({
+      targetName: req.body.targetName,
+      targetLocation: req.body.targetLocation,
+      budget: req.body.budget
+    }, '*')
+    .then(function(result) {
+      res.send(result);
+    })
+    .catch(function(err) {
+      console.log(err);
+      res.sendStatus(500);
+    });
+});
+
+
+
+// UPDATE route to update an existing route
+app.patch('/contracts/:id', function(req, res) {
+  knex('contracts')
+    .update({
+      targetName: req.body.targetName,
+      targetLocation: req.body.targetLocation,
+      budget: req.body.budget
+    }, '*')
+    .where('id', req.params.id)
+    .then(function(result) {
+      res.send(result);
+    })
+    .catch(function(err) {
+      console.log(err);
+      res.sendStatus(500);
+    });
+});
+
+
+
+// DELETE route to delete a contract
+app.delete('/contracts/:id', function(req, res) {
+  knex('contracts')
+    .del()
+    .where('id', req.params.id)
+    .then(function(result) {
+      res.sendStatus(200);
     })
     .catch(function(err) {
       console.log(err);

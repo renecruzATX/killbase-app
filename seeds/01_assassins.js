@@ -1,4 +1,3 @@
-
 // let fs = require('fs');
 //
 //
@@ -129,88 +128,6 @@ exports.seed = function(knex, Promise) {
         kills: 24,
         price: 0,
         age: 60
-      }]);
-    });
-
-
-  // Contracts table
-  // Deletes ALL existing entries
-  return knex('contracts').del()
-    .then(function () {
-      // Inserts seed entries for contracts
-      return knex('contracts').insert([{
-        targetName: 'Butch Coolidge',
-        targetLocation: 'Los Angeles',
-        budget: 40
-      }, {
-        targetName: 'The Jaguar',
-        targetLocation: 'Russian Embassy',
-        budget: 70
-      }, {
-        targetName: 'Norman Stansfield',
-        targetLocation: 'Manhattan',
-        budget: 35
-      }, {
-        targetName: "Santino D'Antonio",
-        targetLocation: 'Continental Hotel',
-        budget: 25
-      }, {
-        targetName: 'Sonny Valerio',
-        targetLocation: 'Queens',
-        budget: 10
-      }]);
-    });
-
-
-  // Targets table
-  // Deletes ALL existing entries
-  return knex('targets').del()
-    .then(function () {
-      // Inserts seed entries for targets
-      return knex('targets').insert([{
-        fullNameTarget: 'Butch Coolidge',
-        location: 'Los Angeles',
-        photo: 'https://goo.gl/LCquZj',
-        securityLevel: 3
-      }, {
-        fullNameTarget: 'The Jaguar',
-        location: 'Russian Embassy',
-        photo: 'https://goo.gl/6JWsiv',
-        securityLevel: 9
-      }, {
-        fullNameTarget: 'Norman Stansfield',
-        location: 'Manhattan',
-        photo: 'https://i.imgur.com/mdIk33E.jpg',
-        securityLevel: 7
-      }, {
-        fullNameTarget: "Santino D'Antonio",
-        location: 'Continental Hotel',
-        photo: 'https://goo.gl/fUPkYy',
-        securityLevel: 10
-      }, {
-        fullNameTarget: 'Sonny Valerio',
-        location: 'Queens',
-        photo: 'https://goo.gl/8DHYUS',
-        securityLevel: 4
-      }]);
-    });
-
-
-  // Clients table
-  // Deletes ALL existing entries
-  return knex('clients').del()
-    .then(function () {
-      // Inserts seed entries for clients
-      return knex('clients').insert([{
-        clientName: 'Marcellus Wallace'
-      }, {
-        clientName: 'Concerto'
-      }, {
-        clientName: 'Mathilda'
-      }, {
-        clientName: 'Winston'
-      }, {
-        clientName: 'Ray Vargo'
       }]);
     });
 
