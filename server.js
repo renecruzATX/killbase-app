@@ -100,6 +100,22 @@ app.patch('/assassins/:id', function(req, res) {
 
 
 
+// DELETE route to delete an assassin
+app.delete('/assassins/:id', function(req, res) {
+  knex('assassins')
+    .del()
+    .where('id', req.params.id)
+    .then(function(result) {
+      res.sendStatus(200);
+    })
+    .catch(function(err) {
+      console.log(err);
+      res.sendStatus(500);
+    });
+});
+
+
+
 
 
 
