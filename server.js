@@ -63,7 +63,7 @@ app.post('/assassins', function(req, res) {
       kills: req.body.kills,
       price: req.body.price,
       age: req.body.age
-    })
+    }, '*')
     .then(function(result) {
       res.send(result);
     })
@@ -72,6 +72,32 @@ app.post('/assassins', function(req, res) {
       res.sendStatus(500);
     });
 });
+
+
+
+// UPDATE route to update an existing assassin
+app.patch('/assassins/:id', function(req, res) {
+  knex('assassins')
+    .update({
+      fullName: req.body.fullName,
+      codeName: req.body.codeName,
+      weapon: req.body.weapon,
+      contactInfo: req.body.contactInfo,
+      rating: req.body.rating,
+      kills: req.body.kills,
+      price: req.body.price,
+      age: req.body.age
+    }, '*')
+    .where('id', req.params.id)
+    .then(function(result) {
+      res.send(result);
+    })
+    .catch(function(err) {
+      console.log(err);
+      res.sendStatus(500);
+    });
+});
+
 
 
 
