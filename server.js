@@ -119,6 +119,38 @@ app.delete('/assassins/:id', function(req, res) {
 
 
 
+// GET route to retreive all contracts
+app.get('/contracts', function(req, res) {
+  knex('contracts')
+    .select('id', 'targetName', 'targetLocation', 'budget')
+    .then(function(result) {
+      res.send(result);
+    })
+    .catch(function(err) {
+      console.log(err);
+      res.sendStatus(500);
+    });
+});
+
+
+
+// GET route to retreive a specific contract
+app.get('/contracts/;id', function(req, res) {
+  knex('contracts')
+    .select('id', 'targetName', 'targetLocation', 'budget')
+    .where('id', req.params.id)
+    .then(function(result) {
+      res.send(result);
+    })
+    .catch(function(err) {
+      console.log(err);
+      res.sendStatus(500);
+    });
+});
+
+
+
+
 
 
 
