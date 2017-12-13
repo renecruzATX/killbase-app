@@ -1,7 +1,7 @@
 
 const config = require('./knexfile.js')['development'];
 const knex = require('knex')(config);
-
+const path = require('path');
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 8000;
@@ -16,6 +16,17 @@ app.use(morgan('short'));
 app.use(bodyParser.json());
 
 
+// access static resources in the 'public' folder
+app.use('/static', express.static(path.join(__dirname, 'public')));
+
+
+// access the templating view files in the 'view folder'
+app.set('views', './views');
+// use the templating engine ejs
+app.set('view engine', 'ejs');
+
+
+
 let assassinsroutes = require('./routes/assassinsroutes.js');
 let contractsroutes = require('./routes/contractsroutes.js');
 let assassincontractsroutes = require('./routes/assassincontractsroutes.js');
@@ -24,6 +35,13 @@ let assassincontractsroutes = require('./routes/assassincontractsroutes.js');
 app.use(assassinsroutes);
 app.use(contractsroutes);
 app.use(assassincontractsroutes);
+
+
+
+// render home page
+app.get('/', function(req, res) {
+  res.render('home.ejs');
+});
 
 
 

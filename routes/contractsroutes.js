@@ -1,7 +1,6 @@
 
 const config = require('../knexfile.js')['development'];
 const knex = require('knex')(config);
-
 const express = require('express');
 const router = express.Router();
 
@@ -53,7 +52,6 @@ router.post('/contracts', function(req, res) {
       .then(function (result) {
         res.send(result);
       })
-
     })
     .catch(function(err) {
       console.log(err);
