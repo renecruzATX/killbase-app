@@ -18,30 +18,12 @@ app.use(bodyParser.json());
 
 let assassinsroutes = require('./routes/assassinsroutes.js');
 let contractsroutes = require('./routes/contractsroutes.js');
+let assassincontractsroutes = require('./routes/assassincontractsroutes.js');
 
 
 app.use(assassinsroutes);
 app.use(contractsroutes);
-
-
-
-
-// assassincontracts
-app.post('/assassincontracts', function(req, res) {
-  knex('assassincontracts')
-    .select('assassins.id')
-    .join('contracts', 'contracts.id')
-    .then(function(result) {
-      res.send(result);
-    })
-    .catch(function(err) {
-      console.log(err);
-      res.sendStatus(500);
-    });
-});
-
-
-
+app.use(assassincontractsroutes);
 
 
 

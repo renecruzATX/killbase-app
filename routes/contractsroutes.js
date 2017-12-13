@@ -40,14 +40,20 @@ router.get('/contracts/:id', function(req, res) {
 
 // POST route to add a new contract
 router.post('/contracts', function(req, res) {
+  // req.body = {client: '', securityLevel: '', targetName: '', budget: 2, targetLocation: 'austin', assassin_id: 2}
+  let assassinContract = {};
+  assassincontracts.assassinId = req.body.assassinId;
+  delete req.body.assassinId;
+
   knex('contracts')
-    .insert({
-      targetName: req.body.targetName,
-      targetLocation: req.body.targetLocation,
-      budget: req.body.budget
-    }, '*')
+    .insert(req.body, '*')
     .then(function(result) {
-      res.send(result);
+      assassinContract.contractId = result.id;
+      knex('assassincontracts').insert(assassinContract, '*')
+      .then(function (result) {
+        res.send(result);
+      })
+
     })
     .catch(function(err) {
       console.log(err);
