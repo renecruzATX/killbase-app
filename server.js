@@ -16,8 +16,8 @@ app.use(morgan('short'));
 app.use(bodyParser.json());
 
 
-// access static resources in the 'public' folder
-app.use('/static', express.static(path.join(__dirname, 'public')));
+// access static resources (images/css) in the 'public' folder
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 // access the templating view files in the 'view folder'
