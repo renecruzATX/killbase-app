@@ -11,6 +11,7 @@ router.get('/assassins', function(req, res) {
   knex('assassins')
     .select('id', 'fullName', 'codeName', 'weapon', 'contactInfo', 'rating', 'kills', 'price', 'age')
     .then(function(result) {
+      res.render('assassins/assassinsall.ejs');
       res.send(result);
     })
     .catch(function(err) {

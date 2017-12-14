@@ -1,5 +1,13 @@
+#home {
+  background-image: url("worldmapgrey.jpg");
+  background-size: cover;
+}
+
+#home h1 {
+    color: white;
+}
+
 .assassinsContractsHome {
   display: inline-block;
-  float: left;
   margin: 50px;
 }

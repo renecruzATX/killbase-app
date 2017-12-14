@@ -4,29 +4,25 @@
 <html lang="en">
 
   <head>
-    <meta charset="utf-8">
-
-    <title>Killbase</title>
-    <!-- Materialize - Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <!-- Materialize - Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Local stylesheet -->
-    <link rel='stylesheet' type="text/css" href='/styles.css'>
+    <!-- head tags (meta, css) -->
+    <%- include('partials/headinfo') %>
   </head>
 
-  <body>
+  <body id="home">
     <h1>Killbase</h1>
 
     <div class="assassinsContractsHome">
-      <a href="https://placeholder.com"><img src="http://via.placeholder.com/300x200" alt="Assassins"></a>
+      <a href="assassins"><img src="http://via.placeholder.com/300x200" alt="Assassins"></a>
       <h2>Assassins</h2>
     </div>
 
     <div class="assassinsContractsHome">
-    <a href="https://placeholder.com"><img src="http://via.placeholder.com/300x200" alt="Contracts"></a>
-    <h2>Contracts</h2>
+      <a href="contracts"><img src="http://via.placeholder.com/300x200" alt="Contracts"></a>
+      <h2>Contracts</h2>
     </div>
+
+    <!-- footer -->
+    <%- include('partials/footer') %>
 
   </body>
 
