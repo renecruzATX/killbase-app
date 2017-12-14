@@ -1,4 +1,3 @@
-
 const config = require('../knexfile.js')['development'];
 const knex = require('knex')(config);
 const express = require('express');
@@ -11,7 +10,7 @@ router.get('/contracts', function(req, res) {
   knex('contracts')
     .select('id', 'targetName', 'targetLocation', 'budget')
     .then(function(result) {
-      res.send(result);
+      res.render('contracts/contractsall.ejs', {contracts: result});
     })
     .catch(function(err) {
       console.log(err);
@@ -21,22 +20,12 @@ router.get('/contracts', function(req, res) {
 
 
 
-// GET route to retreive a specific contract
-router.get('/contracts/:id', function(req, res) {
+// GET route to get blank form for a new contract, then POST to database
+// below when form is submitted
+router.get('/contracts/new', function(req, res) {
   knex('contracts')
-    .select('id', 'targetName', 'targetLocation', 'budget')
-    .where('id', req.params.id)
-    .then(function(result) {
-      res.send(result);
-    })
-    .catch(function(err) {
-      console.log(err);
-      res.sendStatus(500);
-    });
-});
-
-
-
+    res.render('contracts/contractsnew.ejs')
+})
 // POST route to add a new contract
 router.post('/contracts', function(req, res) {
   // req.body = {client: '', securityLevel: '', targetName: '', budget: 2, targetLocation: 'austin', assassin_id: 2}
@@ -61,8 +50,24 @@ router.post('/contracts', function(req, res) {
 
 
 
+// GET route to retreive a specific contract
+router.get('/contracts/:id', function(req, res) {
+  knex('contracts')
+    .select('id', 'targetName', 'targetLocation', 'budget')
+    .where('id', req.params.id)
+    .then(function(result) {
+      res.render('contracts/contractsone.ejs', {contracts: result});
+    })
+    .catch(function(err) {
+      console.log(err);
+      res.sendStatus(500);
+    });
+});
+
+
+
 // UPDATE route to update an existing route
-router.patch('/contracts/:id', function(req, res) {
+router.patch('/contracts/:id/edit', function(req, res) {
   knex('contracts')
     .update({
       targetName: req.body.targetName,

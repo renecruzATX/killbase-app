@@ -21,23 +21,13 @@ router.get('/assassins', function(req, res) {
 
 
 
-// GET route to retreive a specific assassin
-router.get('/assassins/:id', function(req, res) {
+// GET route to get blank form for a new assassin, then POST to database
+// below when form is submitted
+router.get('/assassins/new', function(req, res) {
   knex('assassins')
-    .select('id', 'fullName', 'codeName', 'weapon', 'contactInfo', 'rating', 'kills', 'price', 'age')
-    .where('id', req.params.id)
-    .then(function(result) {
-      res.render('assassins/assassinsone.ejs', {assassins: result});
-    })
-    .catch(function(err) {
-      console.log(err);
-      res.sendStatus(500);
-    });
-});
-
-
-
-// POST route to add a new assassin
+    res.render('assassins/assassinsnew.ejs');
+})
+// POST route to add a new assassin to the database
 router.post('/assassins', function(req, res) {
   knex('assassins')
     .insert({
@@ -61,8 +51,24 @@ router.post('/assassins', function(req, res) {
 
 
 
+// GET route to retreive a specific assassin
+router.get('/assassins/:id', function(req, res) {
+  knex('assassins')
+    .select('id', 'fullName', 'codeName', 'weapon', 'contactInfo', 'rating', 'kills', 'price', 'age')
+    .where('id', req.params.id)
+    .then(function(result) {
+      res.render('assassins/assassinsone.ejs', {assassins: result});
+    })
+    .catch(function(err) {
+      console.log(err);
+      res.sendStatus(500);
+    });
+});
+
+
+
 // UPDATE route to update an existing assassin
-router.patch('/assassins/:id', function(req, res) {
+router.patch('/assassins/:id/edit', function(req, res) {
   knex('assassins')
     .update({
       fullName: req.body.fullName,
@@ -76,7 +82,7 @@ router.patch('/assassins/:id', function(req, res) {
     }, '*')
     .where('id', req.params.id)
     .then(function(result) {
-      res.send(result);
+      res.render('assassins/assassinsedit.ejs', {assassins: result});
     })
     .catch(function(err) {
       console.log(err);
@@ -92,6 +98,7 @@ router.delete('/assassins/:id', function(req, res) {
     .del()
     .where('id', req.params.id)
     .then(function(result) {
+      res.redirect('/assassins');
       res.sendStatus(200);
     })
     .catch(function(err) {
