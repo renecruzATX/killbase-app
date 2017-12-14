@@ -11,3 +11,18 @@
   display: inline-block;
   margin: 50px;
 }
+
+.topbanner {
+  display: flex;
+}
+
+.navlinkstop {
+  display: flex;
+  float: right;
+  font-size: 24px;
+}
+
+a {
+  color: black;
+  margin-right: 5px;
+}

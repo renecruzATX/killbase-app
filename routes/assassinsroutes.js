@@ -1,4 +1,3 @@
-
 const config = require('../knexfile.js')['development'];
 const knex = require('knex')(config);
 const express = require('express');
@@ -11,8 +10,8 @@ router.get('/assassins', function(req, res) {
   knex('assassins')
     .select('id', 'fullName', 'codeName', 'weapon', 'contactInfo', 'rating', 'kills', 'price', 'age')
     .then(function(result) {
-      res.render('assassins/assassinsall.ejs');
-      res.send(result);
+      console.log(result);
+      res.render('assassins/assassinsall.ejs', {assassins: result});
     })
     .catch(function(err) {
       console.log(err);
@@ -28,7 +27,7 @@ router.get('/assassins/:id', function(req, res) {
     .select('id', 'fullName', 'codeName', 'weapon', 'contactInfo', 'rating', 'kills', 'price', 'age')
     .where('id', req.params.id)
     .then(function(result) {
-      res.send(result);
+      res.render('assassins/assassinsone.ejs', {assassins: result});
     })
     .catch(function(err) {
       console.log(err);
