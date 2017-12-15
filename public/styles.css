@@ -68,7 +68,6 @@ a:hover {
 
 #assassins {
   background-image: url("worldmapgrey.jpg");
-  /* background-color: black; */
   background-size: cover;
   color: #fff;
 }
@@ -101,6 +100,7 @@ h4 {
 
 .weaponcontact {
   display: flex;
+  margin-bottom: 30px;
 }
 
 .rightsquare {
@@ -108,13 +108,13 @@ h4 {
 }
 
 img {
-  height: 20px;
-  width: 20px;
+  height: 25px;
+  width: 25px;
   margin: 0px 10px 0px 10px;
 }
 
 h6 {
-  margin-right: 40px;
+  margin-right: 30px;
 }
 
 
@@ -124,6 +124,16 @@ h6 {
   background-image: url("mapblue.jpg");
   background-size: cover;
   color: #fff;
+}
+
+.photo {
+  height: 200px;
+  width: 150px;
+}
+
+.rightsquare>a {
+  display: flex;
+  margin-top: 10px;
 }
 
 

@@ -19,7 +19,7 @@
       <% assassins.forEach(function(assassins) { %>
         <li>
           <div class="collapsible-header">
-            <h6><%= assassins.codeName %></h6>
+            <h6>Code Name: <%= assassins.codeName %></h6>
           </div>
           <div class="collapsible-body">
             <div class="midsquare">
@@ -36,8 +36,8 @@
               </div>
             </div>
             <div class="rightsquare">
-              <img src="square.png"><h6>Edit</h6>
-              <img src="square.png"><h6>Delete</h6>
+              <a href="#"><img src="square.png"><h6>Edit</h6></a>
+              <a href="#"><img src="square.png"><h6>Delete</h6></a>
             </div>
           </div>
         </li>

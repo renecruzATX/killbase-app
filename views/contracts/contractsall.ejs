@@ -14,8 +14,32 @@
 
     <h4 class="writeC">Available Contracts</h4>
 
-    <!-- GET all assassins data -->
-    <%= JSON.stringify(contracts) %>
+    <!-- GET all contracts data -->
+    <ul class="collapsible">
+      <% contracts.forEach(function(contracts) { %>
+        <li>
+          <div class="collapsible-header">
+            <h6>Target Name: <%= contracts.targetName %></h6>
+          </div>
+          <div class="collapsible-body">
+            <div >
+              <img class="photo" src="<%- contracts.targetPhoto -%>"></img>
+            </div>
+            <div class="midsquare">
+              <h6>Client Name: <%= contracts.clientName %></h6>
+              <h6>Target Location: <%= contracts.targetLocation %></h6>
+              <h6>Budget: <%= contracts.budget %></h6>
+              <h6>Security Level: <%= contracts.securityLevel %></h6>
+            </div>
+            <div class="rightsquare">
+              <a href="#"><img src="square.png"><h6>Edit</h6></a>
+              <a href="#"><img src="square.png"><h6>Delete</h6></a>
+              <a href="#"><img src="square.png"><h6>Complete</h6></a>
+            </div>
+          </div>
+        </li>
+      <% }); %>
+    </ul>
 
 
     <!-- footer -->
@@ -26,11 +50,14 @@
     	$(function(){
         $(".writeC").typed({
           strings: ["ap9%FJg sK*r+ Tkif[90uj]0", "Available Contracts"],
-          typeSpeed: 2,
+          typeSpeed: 1,
           showCursor: false,
         });
       });
     </script>
+
+    <!-- Compiled and minified JavaScript for Materialize -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
   </body>
 

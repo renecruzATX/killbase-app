@@ -8,9 +8,9 @@ const router = express.Router();
 // GET route to retreive all contracts
 router.get('/contracts', function(req, res) {
   knex('contracts')
-    .select('id', 'targetName', 'targetLocation', 'budget')
-    .then(function(result) {
-      res.render('contracts/contractsall.ejs', {contracts: result});
+    .select('id', 'targetPhoto', 'targetName', 'clientName', 'targetLocation', 'budget', 'securityLevel')
+    .then(function(contracts) {
+      res.render('contracts/contractsall.ejs', {contracts});
     })
     .catch(function(err) {
       console.log(err);
@@ -53,7 +53,7 @@ router.post('/contracts', function(req, res) {
 // GET route to retreive a specific contract
 router.get('/contracts/:id', function(req, res) {
   knex('contracts')
-    .select('id', 'targetName', 'targetLocation', 'budget')
+    .select('id', 'targetPhoto', 'targetName', 'clientName', 'targetLocation', 'budget', 'securityLevel')
     .where('id', req.params.id)
     .then(function(result) {
       res.render('contracts/contractsone.ejs', {contracts: result});
