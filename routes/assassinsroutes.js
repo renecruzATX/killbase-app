@@ -67,8 +67,14 @@ router.get('/assassins/:id', function(req, res) {
 
 
 
-// UPDATE route to update an existing assassin
-router.patch('/assassins/:id/edit', function(req, res) {
+// GET route to retreive data for selected assassin, the PATCH route
+// below to update the database
+router.get('/assassins/:id/edit', function(req, res) {
+  knex('assassins')
+    res.render('assassins/assassinsedit.ejs');
+})
+// PATCH route to update an existing assassin
+router.patch('/assassins/:id', function(req, res) {
   knex('assassins')
     .update({
       fullName: req.body.fullName,
@@ -82,7 +88,7 @@ router.patch('/assassins/:id/edit', function(req, res) {
     }, '*')
     .where('id', req.params.id)
     .then(function(result) {
-      res.render('assassins/assassinsedit.ejs', {assassins: result});
+      res.send(result);
     })
     .catch(function(err) {
       console.log(err);

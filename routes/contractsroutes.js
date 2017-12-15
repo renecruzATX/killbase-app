@@ -66,8 +66,14 @@ router.get('/contracts/:id', function(req, res) {
 
 
 
-// UPDATE route to update an existing route
-router.patch('/contracts/:id/edit', function(req, res) {
+// GET route to retreive data for selected assassin, the PATCH route
+// below to update the database
+router.get('/contracts/:id/edit', function(req, res) {
+  knex('contracts')
+    res.render('contracts/contractsedit.ejs')
+})
+// PATCH route to update an existing contract
+router.patch('/contracts/:id', function(req, res) {
   knex('contracts')
     .update({
       targetName: req.body.targetName,
