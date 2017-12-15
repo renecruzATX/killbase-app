@@ -14,20 +14,35 @@
       <h1>Killbase</h1>
     </div>
 
-    <div class="homeholder">
+    <div class="typed">
       <div class="assassinsContractsHome">
-        <a href="assassins"><img src="crosshair.png" alt="Assassins"></a>
-        <h2>Assassins</h2>
+        <a href="assassins"><h2 class="writeAs">Assassins</h2></a>
       </div>
 
       <div class="assassinsContractsHome">
-        <a href="contracts"><img src="crosshair.png" alt="Contracts"></a>
-        <h2>Contracts</h2>
+        <a href="contracts"><h2 class="writeCo">Contracts</h2></a>
       </div>
     <div>
 
     <!-- footer -->
     <%- include('partials/footer') %>
+
+    <!-- typed.js for typewriter effect -->
+    <script type="text/javascript">
+    	$(function(){
+        $(".writeAs").typed({
+          strings: ["XD!m @zYk4{de}8? bd%3", "Assassins"],
+          typeSpeed: 20,
+          showCursor: false,
+        });
+
+        $(".writeCo").typed({
+          strings: ["ap9t%FJg sK*r+", "Contracts"],
+          typeSpeed: 20,
+          showCursor: false,
+        });
+      });
+    </script>
 
   </body>
 

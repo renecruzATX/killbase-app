@@ -21,22 +21,19 @@
   margin-top: -40px;
 }
 
-.homeholder {
-  text-align: center;
-}
-
 .assassinsContractsHome {
-  display: inline-block;
-  margin: 50px;
-}
-
-.assassinsContractsHome img {
-  height: 100px;
-  width: 100px;
+  margin-left: 100px;
 }
 
 h2 {
-  color: aqua;
+  display: inline-block;
+  color: #fff;
+  font-size: 26px;
+  margin-bottom: 0px;
+}
+
+h2:hover {
+  color: red;
 }
 
 
@@ -44,6 +41,11 @@ h2 {
 
 .topbanner {
   display: flex;
+  margin-top: 40px;
+}
+
+.navlinksright {
+  width: 1050px;
 }
 
 .navlinkstop {
@@ -54,7 +56,11 @@ h2 {
 
 a {
   color: #fff;
-  margin-right: 5px;
+  margin: 0px 10px 0px 10px;
+}
+
+a:hover {
+  color: red;
 }
 
 

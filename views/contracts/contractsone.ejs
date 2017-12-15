@@ -12,7 +12,7 @@
   <body id="contracts">
     <%- include('../partials/navbar') %>
 
-    <h4>Available Contracts</h4>
+    <h4 class="writeC">Available Contracts</h4>
 
     <!-- GET all assassins data -->
     <%= JSON.stringify(contracts) %>
@@ -20,6 +20,18 @@
 
     <!-- footer -->
     <%- include('../partials/footer') %>
+
+    <!-- typed.js for typewriter effect -->
+    <script type="text/javascript">
+    	$(function(){
+        $(".writeC").typed({
+          strings: ["ap9%FJg sK*r+ Tkif[90uj]0", "Available Contracts"],
+          typeSpeed: 2,
+          showCursor: false,
+        });
+      });
+    </script>
+
   </body>
 
 </html>

@@ -12,7 +12,7 @@
   <body id="assassins">
     <%- include('../partials/navbar') %>
 
-    <h4>Active Assassins</h4>
+    <h4 class="writeA">Active Assassins</h4>
 
     <!-- GET data for one assassin -->
     <%= JSON.stringify(assassins) %>
@@ -20,6 +20,18 @@
 
     <!-- footer -->
     <%- include('../partials/footer') %>
+
+    <!-- typed.js for typewriter effect -->
+    <script type="text/javascript">
+    	$(function(){
+        $(".writeA").typed({
+          strings: ["XD!m @zYk4{de8}? bd%3lmdsfvd", "Active Assassins"],
+          typeSpeed: 2,
+          showCursor: false,
+        });
+      });
+    </script>
+
   </body>
 
 </html>
