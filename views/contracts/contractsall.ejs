@@ -32,8 +32,9 @@
               <h6>Security Level: <%= contracts.securityLevel %></h6>
             </div>
             <div class="rightsquare">
-              <a href="#"><img src="square.png"><h6>Edit</h6></a>
-              <a href="#"><img src="square.png"><h6>Delete</h6></a>
+              <a href="/contracts/<%= contracts.id %>"><img src="square.png"><h6>More Info</h6></a>
+              <a href="/contracts/<%= contracts.id %>/edit"><img src="square.png"><h6>Edit</h6></a>
+              <a href="/contracts/<%= contracts.id %>"><img src="square.png"><h6>Delete</h6></a>
               <a href="#"><img src="square.png"><h6>Complete</h6></a>
             </div>
           </div>

@@ -22,8 +22,10 @@
             <h6>Code Name: <%= assassins.codeName %></h6>
           </div>
           <div class="collapsible-body">
-            <div class="midsquare">
+            <div class="leftname">
               <h6>Name: <%= assassins.fullName %></h6>
+            </div>
+            <div class="midsquare">
               <div class="ratingprice">
                 <h6>Rating: <%= assassins.rating %></h6>
                 <h6>Price: <%= assassins.price %></h6>
@@ -36,8 +38,9 @@
               </div>
             </div>
             <div class="rightsquare">
-              <a href="#"><img src="square.png"><h6>Edit</h6></a>
-              <a href="#"><img src="square.png"><h6>Delete</h6></a>
+              <a href="/assassins/<%= assassins.id %>"><img src="square.png"><h6>More Info</h6></a>
+              <a href="/assassins/<%= assassins.id %>/edit"><img src="square.png"><h6>Edit</h6></a>
+              <a href="/assassins/<%= assassins.id %>"><img src="square.png"><h6>Delete</h6></a>
             </div>
           </div>
         </li>
@@ -54,7 +57,7 @@
     	$(function(){
         $(".writeA").typed({
           strings: ["XD!m @zYk4{de8}? bd%3lmdsfvd", "Active Assassins"],
-          typeSpeed: 1,
+          typeSpeed: 0.5,
           showCursor: false,
         });
       });

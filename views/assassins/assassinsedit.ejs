@@ -7,10 +7,23 @@
   <head>
     <!-- head tags (meta, css) -->
     <%- include('../partials/headinfo') %>
-  </head id="assassins">
+  </head>
 
-  <body>
-    <%- include('../partials/navbar') %>
+  <body id="assassins">
+    <div class="topbanner">
+      <div class="crossbase">
+        <img src="/../crosshair.png" alt="crosshair" class="cross">
+        <h1>Killbase</h1>
+      </div>
+
+      <div class="navlinksright">
+        <ul class="navlinkstop">
+          <li><a href="/">Home</a>|</li>
+          <li><a href="/assassins">Assassins</a>|</li>
+          <li><a href="/contracts">Contracts</a></li>
+        </ul>
+      </div>
+    </div>
 
     <h4 class="writeA">Active Assassins</h4>
 
@@ -25,7 +38,7 @@
     <script type="text/javascript">
     	$(function(){
         $(".writeA").typed({
-          strings: ["XD!m @zYk4{de8}? bd%3lmdsfvd", "Active Assassins"],
+          strings: ["+D!m @ddY4[de8]- bd%3lmmjo", "Edit Assassin"],
           typeSpeed: 1,
           showCursor: false,
         });

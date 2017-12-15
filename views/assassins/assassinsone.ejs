@@ -10,7 +10,21 @@
   </head>
 
   <body id="assassins">
-    <%- include('../partials/navbar') %>
+    <div class="topbanner">
+      <div class="crossbase">
+        <img src="../crosshair.png" alt="crosshair" class="cross">
+        <h1>Killbase</h1>
+      </div>
+
+      <div class="navlinksright">
+        <ul class="navlinkstop">
+          <li><a href="/">Home</a>|</li>
+          <li><a href="/assassins">Assassins</a>|</li>
+          <li><a href="/contracts">Contracts</a></li>
+        </ul>
+      </div>
+    </div>
+
 
     <h4 class="writeA">Active Assassins</h4>
 
@@ -25,7 +39,7 @@
     <script type="text/javascript">
     	$(function(){
         $(".writeA").typed({
-          strings: ["XD!m @zYk4{de8}? bd%3lmdsfvd", "Active Assassins"],
+          strings: ["rD!m @zYk4{dgf8}? ad%3ls9d", "Assassin Info"],
           typeSpeed: 1,
           showCursor: false,
         });
