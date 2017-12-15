@@ -76,6 +76,16 @@ h4 {
   margin: 0px 0px 30px 180px;
 }
 
+.btn {
+  background: rgba(0,0,0,0.8);
+  border: 1px solid #fff;
+  margin: 0px 0px 20px 180px;
+}
+
+.btn:hover {
+  background: rgba(0,0,0,0.8);
+}
+
 .collapsible {
   width: 75%;
   margin: auto;
