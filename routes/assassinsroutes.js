@@ -9,9 +9,9 @@ const router = express.Router();
 router.get('/assassins', function(req, res) {
   knex('assassins')
     .select('id', 'fullName', 'codeName', 'weapon', 'contactInfo', 'rating', 'kills', 'price', 'age')
-    .then(function(result) {
-      console.log(result);
-      res.render('assassins/assassinsall.ejs', {assassins: result});
+    .then(function(assassins) {
+      console.log(assassins);
+      res.render('assassins/assassinsall.ejs', {assassins});
     })
     .catch(function(err) {
       console.log(err);

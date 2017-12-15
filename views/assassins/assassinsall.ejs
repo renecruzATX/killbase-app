@@ -15,22 +15,53 @@
     <h4 class="writeA">Active Assassins</h4>
 
     <!-- GET all assassins data -->
-    <%= JSON.stringify(assassins) %>
+    <ul class="collapsible">
+      <% assassins.forEach(function(assassins) { %>
+        <li>
+          <div class="collapsible-header">
+            <h6><%= assassins.codeName %></h6>
+          </div>
+          <div class="collapsible-body">
+            <div class="midsquare">
+              <h6>Name: <%= assassins.fullName %></h6>
+              <div class="ratingprice">
+                <h6>Rating: <%= assassins.rating %></h6>
+                <h6>Price: <%= assassins.price %></h6>
+                <h6>Kills: <%= assassins.kills %></h6>
+                <h6>Age: <%= assassins.age %></h6>
+              </div>
+              <div class="weaponcontact">
+                <h6>Weapon: <%= assassins.weapon %></h6>
+                <h6>Contact: <%= assassins.contactInfo %></h6>
+              </div>
+            </div>
+            <div class="rightsquare">
+              <img src="square.png"><h6>Edit</h6>
+              <img src="square.png"><h6>Delete</h6>
+            </div>
+          </div>
+        </li>
+      <% }); %>
+    </ul>
 
 
     <!-- footer -->
     <%- include('../partials/footer') %>
+
 
     <!-- typed.js for typewriter effect -->
     <script type="text/javascript">
     	$(function(){
         $(".writeA").typed({
           strings: ["XD!m @zYk4{de8}? bd%3lmdsfvd", "Active Assassins"],
-          typeSpeed: 2,
+          typeSpeed: 1,
           showCursor: false,
         });
       });
     </script>
+
+    <!-- Compiled and minified JavaScript for Materialize -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
   </body>
 
