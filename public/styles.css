@@ -1,16 +1,46 @@
+/* home page */
+
 #home {
-  background-image: url("worldmapgrey.jpg");
+  background-image: url("homenorse.gif");
   background-size: cover;
+  border-top: 40px solid black;
 }
 
 #home h1 {
     color: white;
 }
 
+.cross {
+  height: 100px;
+  width: 100px;
+  margin-top: 15px;
+}
+
+.crossbase {
+  display: flex;
+  margin-top: -40px;
+}
+
+.homeholder {
+  text-align: center;
+}
+
 .assassinsContractsHome {
   display: inline-block;
   margin: 50px;
 }
+
+.assassinsContractsHome img {
+  height: 100px;
+  width: 100px;
+}
+
+h2 {
+  color: aqua;
+}
+
+
+/* navbar */
 
 .topbanner {
   display: flex;
@@ -23,6 +53,32 @@
 }
 
 a {
-  color: black;
+  color: #fff;
   margin-right: 5px;
+}
+
+
+/* assassins */
+
+#assassins {
+  background-image: url("worldmapgrey.jpg");
+  background-size: cover;
+  color: #fff;
+}
+
+
+/* contracts */
+
+#contracts {
+  background-image: url("mapblue.jpg");
+  background-size: cover;
+  color: #fff;
+}
+
+
+/* footer */
+
+.footer {
+  color: #fff;
+  text-align: left;
 }
