@@ -55,8 +55,8 @@ router.get('/contracts/:id', function(req, res) {
   knex('contracts')
     .select('id', 'targetPhoto', 'targetName', 'clientName', 'targetLocation', 'budget', 'securityLevel')
     .where('id', req.params.id)
-    .then(function(result) {
-      res.render('contracts/contractsone.ejs', {contracts: result});
+    .then(function(contracts) {
+      res.render('contracts/contractsone.ejs', {contracts});
     })
     .catch(function(err) {
       console.log(err);
@@ -81,8 +81,8 @@ router.patch('/contracts/:id', function(req, res) {
       budget: req.body.budget
     }, '*')
     .where('id', req.params.id)
-    .then(function(result) {
-      res.send(result);
+    .then(function(contracts) {
+      res.send(contracts);
     })
     .catch(function(err) {
       console.log(err);
@@ -97,7 +97,7 @@ router.delete('/contracts/:id', function(req, res) {
   knex('contracts')
     .del()
     .where('id', req.params.id)
-    .then(function(result) {
+    .then(function(contracts) {
       res.sendStatus(200);
     })
     .catch(function(err) {

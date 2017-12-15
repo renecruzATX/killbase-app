@@ -29,7 +29,35 @@
     <h4 class="writeA">Active Assassins</h4>
 
     <!-- GET data for one assassin -->
-    <%= JSON.stringify(assassins) %>
+    <ul class="collapsible">
+      <li>
+        <div class="collapsible-header">
+          <h6>Code Name: <%= assassins.codeName %></h6>
+        </div>
+        <div class="collapsible-body">
+          <div class="leftname">
+            <h6>Name: <%= assassins.fullName %></h6>
+          </div>
+          <div class="midsquare">
+            <div class="ratingprice">
+              <h6>Rating: <%= assassins.rating %></h6>
+              <h6>Price: <%= assassins.price %></h6>
+              <h6>Kills: <%= assassins.kills %></h6>
+              <h6>Age: <%= assassins.age %></h6>
+            </div>
+            <div class="weaponcontact">
+              <h6>Weapon: <%= assassins.weapon %></h6>
+              <h6>Contact: <%= assassins.contactInfo %></h6>
+            </div>
+          </div>
+          <div class="rightsquare">
+            <a href="/assassins/<%= assassins.id %>"><img src="../square.png"><h6>More Info</h6></a>
+            <a href="/assassins/<%= assassins.id %>/edit"><img src="../square.png"><h6>Edit</h6></a>
+            <a href="/assassins/<%= assassins.id %>"><img src="../square.png"><h6>Delete</h6></a>
+          </div>
+        </div>
+      </li>
+    </ul>
 
 
     <!-- footer -->
@@ -39,7 +67,7 @@
     <script type="text/javascript">
     	$(function(){
         $(".writeA").typed({
-          strings: ["rD!m @zYk4{dgf8}? ad%3ls9d", "Assassin Info"],
+          strings: ["rD!m @zY4{gf8}? as9d", "Assassin Info"],
           typeSpeed: 1,
           showCursor: false,
         });

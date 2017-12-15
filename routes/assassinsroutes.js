@@ -40,8 +40,8 @@ router.post('/assassins', function(req, res) {
       price: req.body.price,
       age: req.body.age
     }, '*')
-    .then(function(result) {
-      res.send(result);
+    .then(function(assassins) {
+      res.send(assassins);
     })
     .catch(function(err) {
       console.log(err);
@@ -56,8 +56,8 @@ router.get('/assassins/:id', function(req, res) {
   knex('assassins')
     .select('id', 'fullName', 'codeName', 'weapon', 'contactInfo', 'rating', 'kills', 'price', 'age')
     .where('id', req.params.id)
-    .then(function(result) {
-      res.render('assassins/assassinsone.ejs', {assassins: result});
+    .then(function(assassins) {
+      res.render('assassins/assassinsone.ejs', {assassins});
     })
     .catch(function(err) {
       console.log(err);
@@ -87,8 +87,8 @@ router.patch('/assassins/:id', function(req, res) {
       age: req.body.age
     }, '*')
     .where('id', req.params.id)
-    .then(function(result) {
-      res.send(result);
+    .then(function(assassins) {
+      res.send(assassins);
     })
     .catch(function(err) {
       console.log(err);
@@ -103,7 +103,7 @@ router.delete('/assassins/:id', function(req, res) {
   knex('assassins')
     .del()
     .where('id', req.params.id)
-    .then(function(result) {
+    .then(function(assassins) {
       res.redirect('/assassins');
       res.sendStatus(200);
     })

@@ -12,8 +12,8 @@ router.get('/assassincontracts/:id', function(req, res) {
     .select('*')
     .join('contracts', 'assassincontracts.contractId', 'contracts.id')
     .where('assassincontracts.assassinId', req.params.id)
-    .then(function(result) {
-      res.send(result);
+    .then(function(assassincontracts) {
+      res.send(assassincontracts);
     })
     .catch(function(err) {
       console.log(err);
