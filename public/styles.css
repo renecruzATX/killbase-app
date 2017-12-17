@@ -87,7 +87,7 @@ h4 {
 }
 
 .collapsible {
-  width: 75%;
+  width: 78%;
   margin: auto;
   border: black;
 }
@@ -158,6 +158,18 @@ h6 {
 .rightsquare>a {
   display: flex;
   margin-top: 10px;
+}
+
+.writeD {
+  margin: 30px 0px 20px 180px;
+}
+
+.actLeft {
+  margin: 10px 0px 10px 0px;
+}
+
+.actMid, .actRight {
+  margin: 20px 0px 0px 20px;
 }
 
 

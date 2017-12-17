@@ -55,8 +55,8 @@ router.get('/contracts/:id', function(req, res) {
   knex('contracts')
     .select('id', 'targetPhoto', 'targetName', 'clientName', 'targetLocation', 'budget', 'securityLevel')
     .where('id', req.params.id)
-    .then(function(contracts) {
-      res.render('contracts/contractsone.ejs', {contracts});
+    .then(function(contract) {
+      res.render('contracts/contractsone.ejs', {contract});
     })
     .catch(function(err) {
       console.log(err);

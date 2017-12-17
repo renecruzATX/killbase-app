@@ -13,7 +13,7 @@ router.get('/assassincontracts/:id', function(req, res) {
     .join('contracts', 'assassincontracts.contractId', 'contracts.id')
     .where('assassincontracts.assassinId', req.params.id)
     .then(function(assassincontracts) {
-      res.send(assassincontracts);
+      res.render(assassincontracts);
     })
     .catch(function(err) {
       console.log(err);

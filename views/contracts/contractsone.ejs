@@ -28,7 +28,33 @@
     <h4 class="writeC">Available Contracts</h4>
 
     <!-- GET all assassins data -->
-    <%= JSON.stringify(contracts) %>
+    <ul class="collapsible popout">
+      <% contract.forEach(function(contract) { %>
+        <li class="doneLi">
+          <div class="collapsible-header">
+            <h6>Target Name: <%= contract.targetName %></h6>
+          </div>
+          <div class="collapsible-body">
+            <div >
+              <img class="photo" src="<%- contract.targetPhoto -%>"></img>
+            </div>
+            <div class="midsquare">
+              <h6>Client Name: <%= contract.clientName %></h6>
+              <h6>Target Location: <%= contract.targetLocation %></h6>
+              <h6>Budget: <%= contract.budget %></h6>
+              <h6>Security Level: <%= contract.securityLevel %></h6>
+            </div>
+            <div class="rightsquare">
+              <a href="/contracts/<%= contract.id %>/edit"><img src="../square.png"><h6>Edit</h6></a>
+              <a href="/contracts/<%= contract.id %>"><img src="../square.png"><h6>Delete</h6></a>
+              <a class="done" href="#"><img src="../square.png"><h6>Complete</h6></a>
+            </div>
+          </div>
+        </li>
+      <% }); %>
+    </ul>
+
+    <h4 class="writeD">Contracted Assassins</h4>
 
 
     <!-- footer -->
@@ -38,9 +64,20 @@
     <script type="text/javascript">
     	$(function(){
         $(".writeC").typed({
-          strings: ["zz9%g s$*r+ ukif;;9]0", "Contract Info"],
+          strings: ["zz9%g s$*r+ ukif@9]0", "Contract Info"],
           typeSpeed: 1,
           showCursor: false,
+        });
+
+        $(".writeD").typed({
+          strings: ["x4% eJ$r uki)f", "Contracted Assassins"],
+          typeSpeed: 1,
+          showCursor: false,
+        });
+
+        // complete click action, apply css
+        $(".done").click(function() {
+          $(".doneLi").css({"background": "red", "opacity": "0.8"});
         });
       });
     </script>
