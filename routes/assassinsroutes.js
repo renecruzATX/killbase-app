@@ -56,8 +56,8 @@ router.get('/assassins/:id', function(req, res) {
   knex('assassins')
     .select('id', 'fullName', 'codeName', 'weapon', 'contactInfo', 'rating', 'kills', 'price', 'age')
     .where('id', req.params.id)
-    .then(function(assassins) {
-      res.render('assassins/assassinsone.ejs', {assassins});
+    .then(function(assassin) {
+      res.render('assassins/assassinsone.ejs', {assassin});
     })
     .catch(function(err) {
       console.log(err);

@@ -89,11 +89,13 @@ h4 {
 .collapsible {
   width: 75%;
   margin: auto;
+  border: black;
 }
 
 .collapsible-header, .collapsible-body {
   background: rgba(0,0,0,0.8);
   padding: 5px;
+  border: black;
 }
 
 .collapsible-header:hover {
@@ -129,6 +131,10 @@ img {
 
 h6 {
   margin-right: 30px;
+}
+
+.writeB {
+  margin: 30px 0px 20px 180px;
 }
 
 
