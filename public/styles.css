@@ -138,6 +138,60 @@ h6 {
 }
 
 
+/* new assassin form */
+
+.form {
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  width: 75%;
+}
+
+input {
+  background-image: url('');
+}
+
+.L {
+  margin: 0px 0px 0px 20px;
+}
+
+.LB {
+  margin: 0px 0px 20px 20px;
+}
+
+.switch {
+  margin-top: 28px;
+}
+
+label {
+  font-size: 15px;
+}
+
+.submita:hover {
+  color: red;
+}
+
+.btn.submita {
+  margin: 0px 0px 30px 30px;
+}
+
+.switch label input[type=checkbox]:checked+.lever:after {
+  background-color: red;
+}
+
+.switch label input[type=checkbox]:checked+.lever {
+    background-color: red;
+}
+
+input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
+  margin: 0px 0px 10px 0px;
+}
+
+input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid red;
+  box-shadow: 0 1px 0 0 red;
+}
+
+
 /* contracts */
 
 #contracts {

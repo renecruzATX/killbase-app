@@ -28,7 +28,47 @@
     <h4 class="writeC">Available Contracts</h4>
 
     <!-- form to add a new contract -->
+    <div class="row form">
+      <form method="POST" action="/contracts/new" class="col s12">
+        <div class="row L">
+          <div class="input-field col s7">
+            <input placeholder=" Target Name" id="" type="text">
+          </div>
+          <div class="input-field col s2">
+            <input placeholder="Security Level" id="" type="text">
+          </div>
+        </div>
+        <div class="row L">
+          <div class="input-field col s7">
+            <input placeholder="Target Location" id="" type="text">
+          </div>
+          <div class="input-field col s2">
+            <input placeholder="Budget" id="" type="text">
+          </div>
+        </div>
+        <div class="row L">
+          <div class="input-field col s7">
+            <input placeholder="Target Image URL" id="" type="text">
+          </div>
+        </div>
+        <div class="row LB">
+          <div class="input-field col s7">
+            <input placeholder="Client Name" id="" type="text">
+          </div>
+          <div class="switch col s4">
+            <label>
+              Current Client
+              <input type="checkbox">
+              <span class="lever"></span>
+              New Client
+            </label>
+          </div>
+        </div>
 
+        <!-- add contract button -->
+        <input type="submit" value="Submit Contract" class="waves-effect waves-light btn submita">
+      </form>
+    </div>
 
 
     <!-- footer -->
@@ -39,7 +79,8 @@
     	$(function(){
         $(".writeC").typed({
           strings: ["a%Jg rKr+ Bk00 yd8$", "Add a New Contract"],
-          typeSpeed: 1,
+          typeSpeed: -10,
+          backSpeed: -10,
           showCursor: false,
         });
       });
