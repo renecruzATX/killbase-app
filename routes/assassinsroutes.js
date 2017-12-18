@@ -74,8 +74,12 @@ router.get('/assassins/:id', function(req, res) {
 // below to update the database
 router.get('/assassins/:id/edit', function(req, res) {
   knex('assassins')
-    res.render('assassins/assassinsedit.ejs');
-})
+    .select('id', 'fullName', 'codeName', 'weapon', 'contactInfo', 'rating', 'kills', 'price', 'age')
+    .where('id', req.params.id)
+    .then(function(assassin) {
+      res.render('assassins/assassinsedit.ejs', {assassin});
+    })
+});
 // PATCH route to update an existing assassin
 router.patch('/assassins', function(req, res) {
   knex('assassins')
@@ -91,7 +95,7 @@ router.patch('/assassins', function(req, res) {
     }, '*')
     .where('id', req.params.id)
     .then(function(assassins) {
-      res.send(assassins);
+      res.send({assassins});
     })
     .catch(function(err) {
       console.log(err);

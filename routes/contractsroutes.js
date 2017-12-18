@@ -70,8 +70,12 @@ router.get('/contracts/:id', function(req, res) {
 // below to update the database
 router.get('/contracts/:id/edit', function(req, res) {
   knex('contracts')
-    res.render('contracts/contractsedit.ejs')
-})
+  .select('id', 'targetPhoto', 'targetName', 'clientName', 'targetLocation', 'budget', 'securityLevel')
+  .where('id', req.params.id)
+  .then(function(contract) {
+    res.render('contracts/contractsedit.ejs', {contract});
+  })
+});
 // PATCH route to update an existing contract
 router.patch('/contracts/:id', function(req, res) {
   knex('contracts')

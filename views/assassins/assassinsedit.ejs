@@ -29,23 +29,22 @@
 
     <!-- Edit an existing assassin -->
     <div class="row form">
-      <form action="/assassins" method="GET" class="col s12">
-
+      <form action="/assassins" method="PATCH" class="col s12">
+        <% assassin.forEach(function(assassin) { %>
           <div class="row L">
             <div class="input-field col s7">
-              <input type="text" placeholder="Name" name="fullName">
-
+              <input type="text" placeholder="Name" value="<%= assassin.fullName %>">
             </div>
             <div class="input-field col s2">
-              <input type="text" placeholder="Age" name="age">
+              <input type="text" placeholder="Age" value="<%= assassin.age %>">
             </div>
           </div>
           <div class="row L">
             <div class="input-field col s7">
-              <input type="text" placeholder="Code Name" type="text" name="codeName">
+              <input type="text" placeholder="Code Name" type="text" value="<%= assassin.codeName %>">
             </div>
             <div class="input-field col s2">
-              <input type="text" placeholder="Price" type="text" name="price">
+              <input type="text" placeholder="Price" type="text" value="<%= assassin.price %>">
             </div>
           </div>
           <div class="row L">
@@ -53,26 +52,26 @@
               <input type="text" placeholder="Profile Image URL" type="text">
             </div>
             <div class="input-field col s2">
-              <input type="text" placeholder="Rating" type="text" name="rating">
+              <input type="text" placeholder="Rating" type="text" value="<%= assassin.rating %>">
             </div>
           </div>
           <div class="row L">
             <div class="input-field col s7">
-              <input type="text" placeholder="Weapon of Choice" type="text" name="weapon">
+              <input type="text" placeholder="Weapon of Choice" type="text" value="<%= assassin.weapon %>">
             </div>
             <div class="input-field col s2">
-              <input type="text" placeholder="Kills" type="text" name="kills">
+              <input type="text" placeholder="Kills" type="text" value="<%= assassin.kills %>">
             </div>
           </div>
           <div class="row LB">
             <div class="input-field col s7">
-              <input type="email" placeholder="Contact Email" type="email" class="validate" name="contactInfo">
+              <input type="email" placeholder="Contact Email" type="email" class="validate" value="<%= assassin.contactInfo %>">
             </div>
           </div>
 
           <!-- add assassin button -->
           <input type="submit" value="Save Changes" class="waves-effect waves-light btn submita">
-
+        <% }); %>
       </form>
     </div>
 

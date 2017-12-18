@@ -28,7 +28,49 @@
     <h4 class="writeC">Available Contracts</h4>
 
     <!-- Edit an existing contract -->
+    <div class="row form">
+      <form action="/contracts" method="PATCH" class="col s12">
+        <% contract.forEach(function(contract) { %>
+          <div class="row L">
+            <div class="input-field col s7">
+              <input type="text" placeholder="Target Name" value="<%=contract.targetName %>">
+            </div>
+            <div class="input-field col s2">
+              <input type="text" placeholder="Security Level" value="<%= contract.securityLevel %>">
+            </div>
+          </div>
+          <div class="row L">
+            <div class="input-field col s7">
+              <input type="text" placeholder="Target Location" value="contract.targetLocation %>">
+            </div>
+            <div class="input-field col s2">
+              <input type="text" placeholder="Budget" value="<%= contract.budget %>">
+            </div>
+          </div>
+          <div class="row L">
+            <div class="input-field col s7">
+              <input type="text" placeholder="Target Image URL" value="<%= contract.targetPhoto %>">
+            </div>
+          </div>
+          <div class="row LB">
+            <div class="input-field col s7">
+              <input type="text" placeholder="Client Name" value="<%= contract.clientName %>">
+            </div>
+            <div class="switch col s4">
+              <label>
+                Current Client
+                <input type="checkbox">
+                <span class="lever"></span>
+                New Client
+              </label>
+            </div>
+          </div>
 
+          <!-- add contract button -->
+          <input type="submit" value="Save Changes" class="waves-effect waves-light btn submita">
+        <% }); %>
+      </form>
+    </div>
 
 
     <!-- footer -->
