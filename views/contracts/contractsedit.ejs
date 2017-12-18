@@ -29,32 +29,31 @@
 
     <!-- Edit an existing contract -->
     <div class="row form">
-      <form action="/contracts" method="PATCH" class="col s12">
-        <% contract.forEach(function(contract) { %>
+      <form action="/contracts/<%= contract.id %>?_method=PUT" method="POST" class="col s12">
           <div class="row L">
             <div class="input-field col s7">
-              <input type="text" placeholder="Target Name" value="<%=contract.targetName %>">
+              <input type="text" placeholder="Target Name" value="<%=contract.targetName %>" name="targetName">
             </div>
             <div class="input-field col s2">
-              <input type="text" placeholder="Security Level" value="<%= contract.securityLevel %>">
+              <input type="text" placeholder="Security Level" value="<%= contract.securityLevel %>" name="securityLevel">
             </div>
           </div>
           <div class="row L">
             <div class="input-field col s7">
-              <input type="text" placeholder="Target Location" value="contract.targetLocation %>">
+              <input type="text" placeholder="Target Location" value="contract.targetLocation %>" name="targetLocation">
             </div>
             <div class="input-field col s2">
-              <input type="text" placeholder="Budget" value="<%= contract.budget %>">
+              <input type="text" placeholder="Budget" value="<%= contract.budget %>" name="budget">
             </div>
           </div>
           <div class="row L">
             <div class="input-field col s7">
-              <input type="text" placeholder="Target Image URL" value="<%= contract.targetPhoto %>">
+              <input type="text" placeholder="Target Image URL" value="<%= contract.targetPhoto %>" name="targetPhoto">
             </div>
           </div>
           <div class="row LB">
             <div class="input-field col s7">
-              <input type="text" placeholder="Client Name" value="<%= contract.clientName %>">
+              <input type="text" placeholder="Client Name" value="<%= contract.clientName %>" name="clientName">
             </div>
             <div class="switch col s4">
               <label>
@@ -68,7 +67,7 @@
 
           <!-- add contract button -->
           <input type="submit" value="Save Changes" class="waves-effect waves-light btn submita">
-        <% }); %>
+          <input type="reset" value="Reset" class="waves-effect waves-light btn submita">
       </form>
     </div>
 

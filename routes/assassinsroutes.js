@@ -8,6 +8,7 @@ const router = express.Router();
 // GET route to retreive all assassins
 router.get('/assassins', function(req, res) {
   knex('assassins')
+    .orderBy('id')
     .select('id', 'fullName', 'codeName', 'weapon', 'contactInfo', 'rating', 'kills', 'price', 'age')
     .then(function(assassins) {
       console.log(assassins);
@@ -75,13 +76,14 @@ router.get('/assassins/:id', function(req, res) {
 router.get('/assassins/:id/edit', function(req, res) {
   knex('assassins')
     .select('id', 'fullName', 'codeName', 'weapon', 'contactInfo', 'rating', 'kills', 'price', 'age')
+    .first()
     .where('id', req.params.id)
     .then(function(assassin) {
       res.render('assassins/assassinsedit.ejs', {assassin});
     })
 });
-// PATCH route to update an existing assassin
-router.patch('/assassins', function(req, res) {
+// PUT route to update an existing assassin
+router.put('/assassins/:id', function(req, res) {
   knex('assassins')
     .update({
       fullName: req.body.fullName,
@@ -94,8 +96,9 @@ router.patch('/assassins', function(req, res) {
       age: req.body.age
     }, '*')
     .where('id', req.params.id)
-    .then(function(assassins) {
-      res.send({assassins});
+    .then(function(assassin) {
+      // res.render({assassin});
+      res.redirect('/assassins');
     })
     .catch(function(err) {
       console.log(err);

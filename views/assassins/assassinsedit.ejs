@@ -7,6 +7,7 @@
   <head>
     <!-- head tags (meta, css) -->
     <%- include('../partials/headinfo') %>
+
   </head>
 
   <body id="assassins">
@@ -29,22 +30,22 @@
 
     <!-- Edit an existing assassin -->
     <div class="row form">
-      <form action="/assassins" method="PATCH" class="col s12">
-        <% assassin.forEach(function(assassin) { %>
+      <form action="/assassins/<%= assassin.id %>?_method=PUT" method="POST" class="col s12">
           <div class="row L">
             <div class="input-field col s7">
-              <input type="text" placeholder="Name" value="<%= assassin.fullName %>">
+              <input type="text" placeholder="Name" value="<%= assassin.fullName %>" name="fullName">
+              <!-- <label for="fullName">Name: </label> -->
             </div>
             <div class="input-field col s2">
-              <input type="text" placeholder="Age" value="<%= assassin.age %>">
+              <input type="text" placeholder="Age" value="<%= assassin.age %>" name="age">
             </div>
           </div>
           <div class="row L">
             <div class="input-field col s7">
-              <input type="text" placeholder="Code Name" type="text" value="<%= assassin.codeName %>">
+              <input type="text" placeholder="Code Name" type="text" value="<%= assassin.codeName %>" name="codeName">
             </div>
             <div class="input-field col s2">
-              <input type="text" placeholder="Price" type="text" value="<%= assassin.price %>">
+              <input type="text" placeholder="Price" type="text" value="<%= assassin.price %>" name="price">
             </div>
           </div>
           <div class="row L">
@@ -52,26 +53,26 @@
               <input type="text" placeholder="Profile Image URL" type="text">
             </div>
             <div class="input-field col s2">
-              <input type="text" placeholder="Rating" type="text" value="<%= assassin.rating %>">
+              <input type="text" placeholder="Rating" type="text" value="<%= assassin.rating %>" name="rating">
             </div>
           </div>
           <div class="row L">
             <div class="input-field col s7">
-              <input type="text" placeholder="Weapon of Choice" type="text" value="<%= assassin.weapon %>">
+              <input type="text" placeholder="Weapon of Choice" type="text" value="<%= assassin.weapon %>" name="weapon">
             </div>
             <div class="input-field col s2">
-              <input type="text" placeholder="Kills" type="text" value="<%= assassin.kills %>">
+              <input type="text" placeholder="Kills" type="text" value="<%= assassin.kills %>" name="kills">
             </div>
           </div>
           <div class="row LB">
             <div class="input-field col s7">
-              <input type="email" placeholder="Contact Email" type="email" class="validate" value="<%= assassin.contactInfo %>">
+              <input type="email" placeholder="Contact Email" type="email" class="validate" value="<%= assassin.contactInfo %>" name="contactInfo">
             </div>
           </div>
 
           <!-- add assassin button -->
           <input type="submit" value="Save Changes" class="waves-effect waves-light btn submita">
-        <% }); %>
+          <input type="reset" value="Reset" class="waves-effect waves-light btn submita">
       </form>
     </div>
 
@@ -79,8 +80,19 @@
     <!-- footer -->
     <%- include('../partials/footer') %>
 
+
+
+    <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+
     <!-- typed.js for typewriter effect -->
     <script type="text/javascript">
+
+      $(document).ready(function() {
+        Materialize.updateTextFields();
+      });
+
     	$(function(){
         $(".writeEdit").typed({
           strings: ["+D!m @dY4[de8]- b%3lmjo", "Edit Assassin"],

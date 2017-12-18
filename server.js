@@ -8,11 +8,14 @@ const port = process.env.PORT || 8000;
 // middleware
 let morgan = require('morgan');
 let bodyParser = require('body-parser');
+let methodOverride = require('method-override');
 
 
 app.disable('x-powered-by');
 app.use(morgan('short'));
 app.use(bodyParser.urlencoded({ extended: true }));
+// method-override middleware
+app.use(methodOverride('_method'))
 
 
 // access static resources (images/css) in the 'public' folder

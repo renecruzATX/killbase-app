@@ -8,6 +8,7 @@ const router = express.Router();
 // GET route to retreive all contracts
 router.get('/contracts', function(req, res) {
   knex('contracts')
+    .orderBy('id')
     .select('id', 'targetPhoto', 'targetName', 'clientName', 'targetLocation', 'budget', 'securityLevel')
     .then(function(contracts) {
       res.render('contracts/contractsall.ejs', {contracts});
@@ -70,14 +71,15 @@ router.get('/contracts/:id', function(req, res) {
 // below to update the database
 router.get('/contracts/:id/edit', function(req, res) {
   knex('contracts')
-  .select('id', 'targetPhoto', 'targetName', 'clientName', 'targetLocation', 'budget', 'securityLevel')
-  .where('id', req.params.id)
-  .then(function(contract) {
-    res.render('contracts/contractsedit.ejs', {contract});
+    .select('id', 'targetPhoto', 'targetName', 'clientName', 'targetLocation', 'budget', 'securityLevel')
+    .first()
+    .where('id', req.params.id)
+    .then(function(contract) {
+      res.render('contracts/contractsedit.ejs', {contract});
   })
 });
-// PATCH route to update an existing contract
-router.patch('/contracts/:id', function(req, res) {
+// PUT route to update an existing contract
+router.put('/contracts/:id', function(req, res) {
   knex('contracts')
     .update({
       targetName: req.body.targetName,
@@ -86,7 +88,8 @@ router.patch('/contracts/:id', function(req, res) {
     }, '*')
     .where('id', req.params.id)
     .then(function(contracts) {
-      res.send(contracts);
+      // res.send(contracts);
+      res.redirect('/contracts');
     })
     .catch(function(err) {
       console.log(err);
