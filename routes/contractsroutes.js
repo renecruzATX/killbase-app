@@ -27,10 +27,10 @@ router.get('/contracts/new', function(req, res) {
     res.render('contracts/contractsnew.ejs')
 })
 // POST route to add a new contract
-router.post('/contracts/new', function(req, res) {
+router.post('/contracts', function(req, res) {
   // req.body = {client: '', securityLevel: '', targetName: '', budget: 2, targetLocation: 'austin', assassin_id: 2}
   let assassinContract = {};
-  assassincontracts.assassinId = req.body.assassinId;
+  assassinContract.assassinId = req.body.assassinId;
   delete req.body.assassinId;
 
   knex('contracts')

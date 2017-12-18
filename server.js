@@ -12,7 +12,7 @@ let bodyParser = require('body-parser');
 
 app.disable('x-powered-by');
 app.use(morgan('short'));
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
 // access static resources (images/css) in the 'public' folder

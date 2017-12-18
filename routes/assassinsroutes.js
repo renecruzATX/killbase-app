@@ -28,7 +28,7 @@ router.get('/assassins/new', function(req, res) {
     res.render('assassins/assassinsnew.ejs');
 })
 // POST route to add a new assassin to the database
-router.post('/assassins/new', function(req, res) {
+router.post('/assassins', function(req, res) {
   knex('assassins')
     .insert({
       fullName: req.body.fullName,
@@ -41,13 +41,16 @@ router.post('/assassins/new', function(req, res) {
       age: req.body.age
     }, '*')
     .then(function(assassins) {
-      res.send(assassins);
+      res.send({assassins});
     })
     .then(function() {
       res.redirect('/assassins');
     })
     .catch(function(err) {
       console.log(err);
+      if (err) {
+        res.redirect('/assassins');
+      }
       res.sendStatus(500);
     });
 });
