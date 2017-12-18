@@ -111,11 +111,13 @@ router.put('/assassins/:id', function(req, res) {
 // DELETE route to delete an assassin
 router.delete('/assassins/:id', function(req, res) {
   knex('assassins')
-    .del()
+    .select('id')
     .where('id', req.params.id)
+    .first()
+    .del()
     .then(function(assassins) {
       res.redirect('/assassins');
-      res.sendStatus(200);
+      // res.sendStatus(200);
     })
     .catch(function(err) {
       console.log(err);

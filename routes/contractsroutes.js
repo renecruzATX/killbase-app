@@ -102,10 +102,13 @@ router.put('/contracts/:id', function(req, res) {
 // DELETE route to delete a contract
 router.delete('/contracts/:id', function(req, res) {
   knex('contracts')
-    .del()
+    .select('id')
     .where('id', req.params.id)
+    .first()
+    .del()
     .then(function(contracts) {
-      res.sendStatus(200);
+      res.redirect('/contracts')
+      // res.sendStatus(200);
     })
     .catch(function(err) {
       console.log(err);

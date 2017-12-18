@@ -36,7 +36,11 @@
             <div class="rightsquare">
               <a href="/contracts/<%= contracts.id %>"><img src="square.png"><h6>More Info</h6></a>
               <a href="/contracts/<%= contracts.id %>/edit"><img src="square.png"><h6>Edit</h6></a>
-              <a href="/contracts/<%= contracts.id %>"><img src="square.png"><h6>Delete</h6></a>
+              <div class="rightsquarebutton">
+                <form action="/contracts/<%= contracts.id %>?_method=DELETE" method="POST">
+                  <img src="square.png"><button type="submit" class="waves-effect waves-light btn submitb"><h6 class="upp">Delete</h6></a>
+                </form>
+              </div>
               <a class="done" href="#"><img src="square.png"><h6>Complete</h6></a>
             </div>
           </div>
