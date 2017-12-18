@@ -25,10 +25,56 @@
       </div>
     </div>
 
-    <h4 class="writeA">Active Assassins</h4>
+    <h4 class="writeEdit"></h4>
 
     <!-- Edit an existing assassin -->
+    <div class="row form">
+      <form action="/assassins" method="GET" class="col s12">
 
+          <div class="row L">
+            <div class="input-field col s7">
+              <input type="text" placeholder="Name" name="fullName">
+
+            </div>
+            <div class="input-field col s2">
+              <input type="text" placeholder="Age" name="age">
+            </div>
+          </div>
+          <div class="row L">
+            <div class="input-field col s7">
+              <input type="text" placeholder="Code Name" type="text" name="codeName">
+            </div>
+            <div class="input-field col s2">
+              <input type="text" placeholder="Price" type="text" name="price">
+            </div>
+          </div>
+          <div class="row L">
+            <div class="input-field col s7">
+              <input type="text" placeholder="Profile Image URL" type="text">
+            </div>
+            <div class="input-field col s2">
+              <input type="text" placeholder="Rating" type="text" name="rating">
+            </div>
+          </div>
+          <div class="row L">
+            <div class="input-field col s7">
+              <input type="text" placeholder="Weapon of Choice" type="text" name="weapon">
+            </div>
+            <div class="input-field col s2">
+              <input type="text" placeholder="Kills" type="text" name="kills">
+            </div>
+          </div>
+          <div class="row LB">
+            <div class="input-field col s7">
+              <input type="email" placeholder="Contact Email" type="email" class="validate" name="contactInfo">
+            </div>
+          </div>
+
+          <!-- add assassin button -->
+          <input type="submit" value="Save Changes" class="waves-effect waves-light btn submita">
+
+      </form>
+    </div>
 
 
     <!-- footer -->
@@ -37,8 +83,8 @@
     <!-- typed.js for typewriter effect -->
     <script type="text/javascript">
     	$(function(){
-        $(".writeA").typed({
-          strings: ["+D!m @ddY4[de8]- bd%3lmmjo", "Edit Assassin"],
+        $(".writeEdit").typed({
+          strings: ["+D!m @dY4[de8]- b%3lmjo", "Edit Assassin"],
           typeSpeed: -10,
           backSpeed: -10,
           showCursor: false,

@@ -39,7 +39,7 @@ router.post('/contracts', function(req, res) {
       assassinContract.contractId = result.id;
       knex('assassincontracts').insert(assassinContract, '*')
       .then(function (result) {
-        res.send(result);
+        res.redirect('/contracts')
       })
     })
     .catch(function(err) {

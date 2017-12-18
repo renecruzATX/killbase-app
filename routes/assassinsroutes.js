@@ -41,9 +41,6 @@ router.post('/assassins', function(req, res) {
       age: req.body.age
     }, '*')
     .then(function(assassins) {
-      res.send({assassins});
-    })
-    .then(function() {
       res.redirect('/assassins');
     })
     .catch(function(err) {
@@ -80,7 +77,7 @@ router.get('/assassins/:id/edit', function(req, res) {
     res.render('assassins/assassinsedit.ejs');
 })
 // PATCH route to update an existing assassin
-router.patch('/assassins/:id', function(req, res) {
+router.patch('/assassins', function(req, res) {
   knex('assassins')
     .update({
       fullName: req.body.fullName,
