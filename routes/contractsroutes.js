@@ -67,6 +67,23 @@ router.get('/contracts/:id', function(req, res) {
 
 
 
+// GET route to retreive data for assassinscontracts table
+router.get('/contracts', function(req, res) {
+  knex('contracts')
+  .innerJoin('assassins', 'assassins.id', 'contracts.id')
+  .select('assassins.fullName', 'assassins.codeName', 'assassins.rating', 'assassins.kills')
+  .where('id', req.params.id)
+  .then(function(result) {
+    console.log(result);
+  })
+  .catch(function(err) {
+    console.log(err);
+    res.sendStatus(500);
+  });
+});
+
+
+
 // GET route to retreive data for selected assassin, the PATCH route
 // below to update the database
 router.get('/contracts/:id/edit', function(req, res) {

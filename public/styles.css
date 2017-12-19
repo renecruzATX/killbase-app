@@ -260,6 +260,40 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
   margin: 20px 0px 0px 20px;
 }
 
+.photoconA {
+  height: 75px;
+  width: 75px;
+}
+
+.contractedA {
+  display: flex;
+  margin: 20px 0px 0px 20px;
+}
+
+.remove {
+  display: inline-block;
+}
+
+.dropdown {
+  background: none;
+  width: 35%;
+}
+
+.row .col.s2.dropd {
+  width: 50%;
+  margin-top: 0px;
+}
+
+.dropdown-content {
+  background: none;
+  color: #fff;
+}
+
+.dropdown-content li>a, .dropdown-content li>span {
+  color: #fff;
+  font-size: 14px;
+}
+
 
 /* footer */
 
