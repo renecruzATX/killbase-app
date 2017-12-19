@@ -196,12 +196,24 @@ label {
   margin: 0px 0px 0px 0px;
 }
 
+.input-field [type=text]:focus + label {
+  color: #fff !important;
+}
+
+.input-field [type=email]:focus + label {
+  color: #fff !important;
+}
+
 .switch label input[type=checkbox]:checked+.lever:after {
   background-color: red;
 }
 
 .switch label input[type=checkbox]:checked+.lever {
-    background-color: red;
+  background-color: red;
+}
+
+.LTOP {
+  margin-top: 25px;
 }
 
 input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
@@ -209,8 +221,8 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 }
 
 input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
-  border-bottom: 1px solid red;
-  box-shadow: 0 1px 0 0 red;
+  border-bottom: 1px solid red !important;
+  box-shadow: 0 1px 0 0 red !important;
 }
 
 

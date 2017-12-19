@@ -30,30 +30,36 @@
     <!-- form to add a new contract -->
     <div class="row form">
       <form action="/contracts" method="POST" class="col s12">
-        <div class="row L">
+        <div class="row L LTOP">
           <div class="input-field col s7">
-            <input type="text" placeholder="Target Name" name="targetName">
+            <input id="targetName" type="text" name="targetName">
+            <label for="targetName">Target Name:</label>
           </div>
           <div class="input-field col s2">
-            <input type="text" placeholder="Security Level" name="securityLevel">
+            <input id="securityLevel" type="text" name="securityLevel">
+            <label for="securityLevel">Security Level:</label>
           </div>
         </div>
         <div class="row L">
           <div class="input-field col s7">
-            <input type="text" placeholder="Target Location" name="targetLocation">
+            <input id="targetLocation" type="text" name="targetLocation">
+            <label for="targetLocation">Target Location:</label>
           </div>
           <div class="input-field col s2">
-            <input type="text" placeholder="Budget" name="budget">
+            <input id="budget" type="text" name="budget">
+            <label for="budget">Budget:</label>
           </div>
         </div>
         <div class="row L">
           <div class="input-field col s7">
-            <input type="text" placeholder="Target Image URL" name="targetPhoto">
+            <input id="targetPhoto" type="text" name="targetPhoto">
+            <label for="targetPhoto">Target Image URL:</label>
           </div>
         </div>
         <div class="row LB">
           <div class="input-field col s7">
-            <input type="text" placeholder="Client Name" name="clientName">
+            <input id="clientName" type="text" name="clientName">
+            <label for="clientName">Client Name:</label>
           </div>
           <div class="switch col s4">
             <label>
@@ -86,6 +92,9 @@
         });
       });
     </script>
+
+    <!-- Compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
   </body>
 

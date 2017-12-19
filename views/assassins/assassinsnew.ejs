@@ -30,42 +30,50 @@
     <!-- form to add a new assassin -->
     <div class="row form">
       <form action="/assassins" method="POST" class="col s12">
-        <div class="row L">
+        <div class="row L LTOP">
           <div class="input-field col s7">
             <input id="Name" type="text" name="fullName">
-            <label for="Name">Name: </label>
+            <label for="Name">Name:</label>
           </div>
           <div class="input-field col s2">
-            <input type="text" placeholder="Age" name="age">
+            <input id="Age" type="text" name="age">
+            <label for="Age">Age:</label>
           </div>
         </div>
         <div class="row L">
           <div class="input-field col s7">
-            <input type="text" placeholder="Code Name" type="text" name="codeName">
+            <input id="codeName" type="text" name="codeName">
+            <label for="codeName">Code Name:</label>
           </div>
           <div class="input-field col s2">
-            <input type="text" placeholder="Price" type="text" name="price">
+            <input id="Price" type="text" name="price">
+            <label for="Price">Price:</label>
           </div>
         </div>
         <div class="row L">
           <div class="input-field col s7">
-            <input type="text" placeholder="Profile Image URL" type="text">
+            <input id="url" type="text">
+            <label for="url">Profile Image URL:</label>
           </div>
           <div class="input-field col s2">
-            <input type="text" placeholder="Rating" type="text" name="rating">
+            <input id="Rating" type="text" name="rating">
+            <label for="Rating">Rating:</label>
           </div>
         </div>
         <div class="row L">
           <div class="input-field col s7">
-            <input type="text" placeholder="Weapon of Choice" type="text" name="weapon">
+            <input id="Weapon" type="text" name="weapon">
+            <label for="Weapon">Weapon of Choice:</label>
           </div>
           <div class="input-field col s2">
-            <input type="text" placeholder="Kills" type="text" name="kills">
+            <input id="Kills" type="text" name="kills">
+            <label for="Kills">Kills:</label>
           </div>
         </div>
         <div class="row LB">
           <div class="input-field col s7">
-            <input type="email" placeholder="Contact Email" type="email" class="validate" name="contactInfo">
+            <input id="Email" type="email" name="contactInfo">
+            <label for="Email">Contact Email:</label>
           </div>
         </div>
 
@@ -79,6 +87,7 @@
     <!-- footer -->
     <%- include('../partials/footer') %>
 
+
     <!-- typed.js for typewriter effect -->
     <script type="text/javascript">
     	$(function(){
@@ -91,7 +100,8 @@
       });
     </script>
 
-
+    <!-- Compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
   </body>
 

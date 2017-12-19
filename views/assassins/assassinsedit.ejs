@@ -31,42 +31,50 @@
     <!-- Edit an existing assassin -->
     <div class="row form">
       <form action="/assassins/<%= assassin.id %>?_method=PUT" method="POST" class="col s12">
-          <div class="row L">
+          <div class="row L LTOP">
             <div class="input-field col s7">
-              <input type="text" placeholder="Name" value="<%= assassin.fullName %>" name="fullName">
-              <!-- <label for="fullName">Name: </label> -->
+              <input id="Name" type="text" class="active" value="<%= assassin.fullName %>" name="fullName">
+              <label for="Name">Name:</label>
             </div>
             <div class="input-field col s2">
-              <input type="text" placeholder="Age" value="<%= assassin.age %>" name="age">
+              <input id="Age" type="text" class="active" value="<%= assassin.age %>" name="age">
+              <label for="Age">Age:</label>
             </div>
           </div>
           <div class="row L">
             <div class="input-field col s7">
-              <input type="text" placeholder="Code Name" type="text" value="<%= assassin.codeName %>" name="codeName">
+              <input id="codeName" type="text" class="active" value="<%= assassin.codeName %>" name="codeName">
+              <label for="codeName">Code Name:</label>
             </div>
             <div class="input-field col s2">
-              <input type="text" placeholder="Price" type="text" value="<%= assassin.price %>" name="price">
+              <input id="Price" type="text" class="active" value="<%= assassin.price %>" name="price">
+              <label for="Price">Price:</label>
             </div>
           </div>
           <div class="row L">
             <div class="input-field col s7">
-              <input type="text" placeholder="Profile Image URL" type="text">
+              <input id="url" type="text">
+              <label for="url">Profile Image URL:</label>
             </div>
             <div class="input-field col s2">
-              <input type="text" placeholder="Rating" type="text" value="<%= assassin.rating %>" name="rating">
+              <input id="Rating" type="text" class="active" value="<%= assassin.rating %>" name="rating">
+              <label for="Rating">Rating:</label>
             </div>
           </div>
           <div class="row L">
             <div class="input-field col s7">
-              <input type="text" placeholder="Weapon of Choice" type="text" value="<%= assassin.weapon %>" name="weapon">
+              <input id="Weapon" type="text" class="active" value="<%= assassin.weapon %>" name="weapon">
+              <label for="Weapon">Weapon of Choice:</label>
             </div>
             <div class="input-field col s2">
-              <input type="text" placeholder="Kills" type="text" value="<%= assassin.kills %>" name="kills">
+              <input id="Kills" type="text" class="acive" value="<%= assassin.kills %>" name="kills">
+              <label for="Kills">Kills:</label>
             </div>
           </div>
           <div class="row LB">
             <div class="input-field col s7">
-              <input type="email" placeholder="Contact Email" type="email" class="validate" value="<%= assassin.contactInfo %>" name="contactInfo">
+              <input id="Email" type="email" class=" active" value="<%= assassin.contactInfo %>" name="contactInfo">
+              <label for="Email">Contact Email:</label>
             </div>
           </div>
 
@@ -81,18 +89,8 @@
     <%- include('../partials/footer') %>
 
 
-
-    <!--Import jQuery before materialize.js-->
-      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-      <script type="text/javascript" src="js/materialize.min.js"></script>
-
     <!-- typed.js for typewriter effect -->
     <script type="text/javascript">
-
-      $(document).ready(function() {
-        Materialize.updateTextFields();
-      });
-
     	$(function(){
         $(".writeEdit").typed({
           strings: ["+D!m @dY4[de8]- b%3lmjo", "Edit Assassin"],
@@ -102,6 +100,9 @@
         });
       });
     </script>
+
+    <!-- Compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
   </body>
 
