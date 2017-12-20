@@ -294,6 +294,10 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
   font-size: 14px;
 }
 
+.dropdown-content li>a:hover, .dropdown-content li>span:hover {
+  color: red;
+}
+
 
 /* footer */
 
