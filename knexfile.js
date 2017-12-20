@@ -36,18 +36,19 @@ module.exports = {
   },
 
   production: {
-    client: 'postgresql',
+    client: 'pg',
     connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
+      host: 'localhost',
+      database: 'killbaseApp',
+      user:     'stevenfiero',
+      password: ''
     },
     migrations: {
-      tableName: 'knex_migrations'
+      tableName: 'knex_migrations',
+      directory: './migrations'
+    },
+    seeds: {
+      directory: './seeds'
     }
   }
 
