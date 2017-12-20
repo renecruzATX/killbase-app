@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./bin/www"
+    "start": "npm start"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,7 @@
     "knex": "^0.14.2",
     "method-override": "^2.3.10",
     "morgan": "^1.9.0",
+    "node-env-file": "^0.1.8",
     "pg": "^7.4.0",
     "typed.js": "^2.0.6"
   },
