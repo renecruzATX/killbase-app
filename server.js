@@ -1,4 +1,4 @@
-const config = require('./knexfile.js')[process.env.DB];
+const config = require('./knexfile.js')[process.env.ENVIRONMENT];
 const knex = require('knex')(config);
 const path = require('path');
 const express = require('express');
