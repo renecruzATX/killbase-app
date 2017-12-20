@@ -38,10 +38,11 @@ module.exports = {
   production: {
     client: 'pg',
     connection: {
-      host: 'localhost',
-      database: 'killbaseApp',
-      user:     'stevenfiero',
-      password: ''
+      host: 'ec2-184-72-228-128.compute-1.amazonaws.com',
+      database: 'dbspcdttksero0',
+      user:     'eigbmpwsmhgpvr',
+      password: '4780654505c00439be6841fa9433673e71158a2793d14d0337c6c3f27e433eb9',
+      ssl: true
     },
     migrations: {
       tableName: 'knex_migrations',
