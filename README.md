@@ -15,3 +15,13 @@ Github repo: https://github.com/ssfiero/killbase-app
 Issue tracker: https://github.com/ssfiero/killbase-app/issues
 
 For project details including user stories and wireframes: https://github.com/ssfiero/killbase-app/blob/master/Instructions-README.md
+
+## Project Start Commands
+
+Knex database migration: ```knex migrate:latest``` or ```knex migrate:rollback```
+
+Knex database seed: ```knex seed:run```
+
+PostgreSQL database: ```psql killbaseinC```
+
+Server: ```node server.js```
