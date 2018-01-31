@@ -22,6 +22,6 @@ Knex database migration: ```knex migrate:latest``` or ```knex migrate:rollback``
 
 Knex database seed: ```knex seed:run```
 
-PostgreSQL database: ```psql killbaseinC```
+PostgreSQL database: ```psql killbaseApp```
 
 Server: ```node server.js```
