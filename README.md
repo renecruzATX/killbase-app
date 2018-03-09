@@ -37,16 +37,19 @@ Heroku db seed: ```heroku run knex seed:run```
 ## Application Screenshots
 
 Homepage
-![Alt](/public/kb1.png)
+
+<img src="/public/kb1.png" alt="alt text" width="75%" height="75%">
 
 Assassins
-![Alt](/public/kb2.png)
 
-![Alt](/public/kb3.png)
+<img src="/public/kb2.png" alt="alt text" width="75%" height="75%">
 
-![Alt](/public/kb4.png)
+<img src="/public/kb3.png" alt="alt text" width="75%" height="75%">
+
+<img src="/public/kb4.png" alt="alt text" width="75%" height="75%">
 
 Contracts
-![Alt](/public/kb5.png)
 
-![Alt](/public/kb6.png)
+<img src="/public/kb5.png" alt="alt text" width="75%" height="75%">
+
+<img src="/public/kb6.png" alt="alt text" width="75%" height="75%">
