@@ -38,7 +38,7 @@ Heroku db seed: ```heroku run knex seed:run```
 
 Homepage
 
-<img src="/public/kb1.png" alt="alt text" width="75%" height="75%">
+<img src="/public/burgerBuilderStartPage.png" alt="alt text" width="75%" height="75%">
 
 Assassins
 
